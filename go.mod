@@ -1,3 +1,3 @@
-module online-bookstore-management-system
+module obms
 
 go 1.21.6
