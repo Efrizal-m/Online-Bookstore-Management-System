@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package users;
+
+// User message represents a user in the system.
+message User {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+    string firstName = 5;
+    string lastName = 6;
+    string createdAt = 7;
+    string updatedAt = 8;
+}
+
+// Request message to create a new user.
+message CreateUserRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+    string firstName = 4;
+    string lastName = 5;
+}
+
+// Response message for user creation.
+message CreateUserResponse {
+    User user = 1;
+}
+
+// Request message to retrieve a user by ID.
+message GetUserRequest {
+    string id = 1;
+}
+
+// Response message for user retrieval.
+message GetUserResponse {
+    User user = 1;
+}
+
+// Request message to authenticate a user.
+message AuthenticateUserRequest {
+    string username = 1;
+    string password = 2;
+}
+
+// Response message for user authentication.
+message AuthenticateUserResponse {
+    User user = 1;
+    string token = 2;
+}
+
+// User service definition.
+service UserService {
+    // Create a new user.
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+
+    // Retrieve a user by ID.
+    rpc GetUser(GetUserRequest) returns (GetUserResponse);
+
+    // Authenticate a user.
+    rpc AuthenticateUser(AuthenticateUserRequest) returns (AuthenticateUserResponse);
+}
