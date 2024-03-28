@@ -1,4 +1,5 @@
 syntax = "proto3";
+option go_package = "github.com/Efrizal-m/Online-Bookstore-Management-System/obms";
 
 package orders;
 
